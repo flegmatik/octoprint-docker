@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. /etc/octoprint
+haproxy -f /etc/haproxy/haproxy.cfg -D
+mjpg_streamer \
+  -b \
+  -i "input_uvc.so -r VGA -f 10 -timestamp -d /dev/${OC_VIDEO}" \
+  -o "output_http.so -p 8080 -l 0.0.0.0 -w /usr/local/share/mjpg-streamer/www/www"
+su -c "/opt/octoprint/bin/octoprint serve" octoprint

@@ -1,0 +1,1 @@
+mjpg_streamer -i 'input_uvc.so -r VGA -f 10 -timestamp -d /dev/video0' -o 'output_http.so -p 8080 -l 0.0.0.0 -w /usr/local/share/mjpg-streamer/www/www'
