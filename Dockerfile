@@ -4,11 +4,11 @@ RUN \
     apk update && \
     apk add \
       build-base \
-      python \
-      python-dev \
-      py2-virtualenv \
-      py2-pip \
-      py-setuptools \
+      python3 \
+      python3-dev \
+      py3-virtualenv \
+      py3-pip \
+      py3-setuptools \
       yaml-dev \
       v4l-utils-dev \
       linux-headers \
@@ -35,7 +35,7 @@ COPY --from=builder /usr/local/share/mjpg-streamer /usr/local/share/mjpg-streame
 COPY --from=builder /usr/local/lib/mjpg-streamer /usr/local/lib/mjpg-streamer
 RUN \
     apk add \
-      python \
+      python3 \
       ffmpeg \
       v4l-utils \
       haproxy \
