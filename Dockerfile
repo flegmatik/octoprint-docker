@@ -57,5 +57,6 @@ RUN \
     mkdir -p /opt/octoprint && \
     chown -R octoprint:root /opt/octoprint && \
     chown octoprint:octoprint /home/octoprint && \
-    pip3 install -r /tmp/requirements.txt
+    virtualenv /opt/octoprint && \
+    /opt/octoprint/bin/pip3 install -r /tmp/requirements.txt
 CMD /usr/local/bin/octoserve
