@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
-. /etc/octoprint
-haproxy -f /etc/haproxy/haproxy.cfg -D
+virtualenv /opt/octoprint
+/opt/octoprint/bin/pip3 install OctoPrint
+chown -R octoprint:root /opt/octoprint
+. /home/octoprint/config/octoprint
+haproxy -f /home/octoprint/config/haproxy.cfg -D
 mjpg_streamer \
   -b \
   -i "input_uvc.so -r VGA -f 10 -timestamp -d /dev/${OC_VIDEO}" \
